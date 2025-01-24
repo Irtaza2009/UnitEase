@@ -27,6 +27,15 @@ const UnitEase = {
       time.supports(fromUnit, toUnit)
     );
   },
+  getPossibleConversions(fromUnit) {
+    const possibleConversions = [];
+    const unitsModules = [length, weight, temperature, time];
+    for (const module of unitsModules) {
+      const conversions = module.getPossibleConversions(fromUnit);
+      possibleConversions.push(...conversions);
+    }
+    return possibleConversions;
+  },
 };
 
 module.exports = UnitEase;

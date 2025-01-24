@@ -27,4 +27,17 @@ function supports(from, to) {
   return supportedUnits.includes(from) && supportedUnits.includes(to);
 }
 
-module.exports = { convert, supports };
+function getPossibleConversions(from) {
+  if (from === "celsius") {
+    return ["fahrenheit", "kelvin"];
+  }
+  if (from === "fahrenheit") {
+    return ["celsius", "kelvin"];
+  }
+  if (from === "kelvin") {
+    return ["celsius", "fahrenheit"];
+  }
+  return [];
+}
+
+module.exports = { convert, supports, getPossibleConversions };

@@ -20,6 +20,11 @@ console.log(UnitEase.supports("celsius", "fahrenheit")); // true
 console.log(UnitEase.supports("celsius", "pounds")); // false
 console.log(UnitEase.supports("meters", "pounds")); // false
 
+// Get possible conversions
+console.log(UnitEase.getPossibleConversions("meters")); // [ 'feet', 'inches', 'yards', 'miles', 'kilometers', 'centimeters', 'millimeters' ]
+console.log(UnitEase.getPossibleConversions("celsius")); // [ 'fahrenheit', 'kelvin' ]
+console.log(UnitEase.getPossibleConversions("lightyears")); // []
+
 // Error handling
 try {
   UnitEase.convert(10, "meters", "pounds");

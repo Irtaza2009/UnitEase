@@ -37,4 +37,11 @@ function supports(from, to) {
   return !!(conversions[from] && conversions[from][to]);
 }
 
-module.exports = { convert, supports };
+function getPossibleConversions(from) {
+  if (!conversions[from]) {
+    return [];
+  }
+  return Object.keys(conversions[from]);
+}
+
+module.exports = { convert, supports, getPossibleConversions };
