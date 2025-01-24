@@ -26,7 +26,12 @@ const conversions = {
   },
 };
 
+const units = conversions;
+
 function convert(value, from, to) {
+  if (from === to) {
+    return value;
+  }
   if (!conversions[from] || !conversions[from][to]) {
     throw new Error(`Conversion from ${from} to ${to} is not supported`);
   }
@@ -44,4 +49,4 @@ function getPossibleConversions(from) {
   return Object.keys(conversions[from]);
 }
 
-module.exports = { convert, supports, getPossibleConversions };
+module.exports = { convert, supports, getPossibleConversions, units };

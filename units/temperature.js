@@ -22,6 +22,8 @@ function convert(value, from, to) {
   throw new Error(`Conversion from ${from} to ${to} is not supported`);
 }
 
+const units = { celsius: {}, fahrenheit: {}, kelvin: {} };
+
 function supports(from, to) {
   const supportedUnits = ["celsius", "fahrenheit", "kelvin"];
   return supportedUnits.includes(from) && supportedUnits.includes(to);
@@ -40,4 +42,4 @@ function getPossibleConversions(from) {
   return [];
 }
 
-module.exports = { convert, supports, getPossibleConversions };
+module.exports = { convert, supports, getPossibleConversions, units };

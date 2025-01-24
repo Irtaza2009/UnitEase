@@ -46,6 +46,26 @@ const result = UnitEase.convert(10, "kilograms", "pounds");
 console.log(result); // Output: 22.0462
 ```
 
+### **Add Custom Conversion Definitions**
+
+```js
+// Add custom units and conversion factor.
+// Add the factor for only one way calculation!
+// Reverse factor will be automatically calculated.
+UnitEase.addConversion("lightyears", "parsecs", 0.306601);
+console.log(UnitEase.convert(2, "lightyears", "parsecs")); // Output: 0.613202
+
+console.log(UnitEase.convert(2, "parsecs", "lightyears")); // Output: 6.5137
+```
+
+### **Add Custom Aliases**
+
+```js
+// Add custom aliases for any unit
+UnitEase.addAlias("kilograms", "kg");
+console.log(UnitEase.convert(5, "kg", "pounds")); // Output: 11.0231
+```
+
 ### **Check Possible Conversions**
 
 ```js
